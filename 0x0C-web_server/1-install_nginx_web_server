@@ -1,19 +1,13 @@
 #!/usr/bin/env bash
+# Install a nginx web server listening on port 80.
+#
+# Also, when querying nginx at its root / with a GET
+# request, it returns a page that contains the string
+# 'Hello World!'.
+#
 
-# Update the package lists
-sudo apt-get update
-
-# Install nginx
-sudo apt-get install -y nginx
-
-# Start nginx
-sudo /etc/init.d/nginx start
-
-# Configure nginx to listen on port 80
-sudo sed -i 's/listen\ 80;/listen\ 80\ default_server;/g' /etc/nginx/sites-available/default
-
-# Restart nginx
-sudo /etc/init.d/nginx restart
-
-# Create a new index.html file with the "Hello World!" message
-echo "Hello World!" | sudo tee /var/www/html/index.html
+apt update
+apt install -y nginx
+ufw allow 'Nginx HTTP'
+echo "Hello World!" > /var/www/html/index.html
+service nginx restart
