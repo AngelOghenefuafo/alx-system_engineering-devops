@@ -10,14 +10,14 @@ apt-get -y install haproxy
 # edit config file
 server_config=\
 "
-frontend  ephraim-frontend
+frontend  ovie-frontend
         bind *:80
         mode http
-        default_backend ehoneah-backend
-backend ehoneah-backend
+        default_backend ovie-backend
+backend ovie-backend
         balance roundrobin
-        server 73653-web-01 34.201.165.8:80 check
-        server 73653-web-02 100.25.201.104:80 check
+        server 131641-web-01 54.236.12.44:80 check
+        server 131641-web-02 100.25.17.206:80 check
 "
 echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
 
