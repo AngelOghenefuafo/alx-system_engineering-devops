@@ -34,20 +34,20 @@ defaults
 	errorfile 504 /etc/haproxy/errors/504.http
 
 # start of parameters for aysuarex.tech
-frontend aysuarex.tech-http-frontend
+frontend oviecodes.tech-http-frontend
 	bind	 *:80
 	http-request set-header X-Forwarded-Proto http
-	default_backend	 aysuarex.tech-backend
+	default_backend	 oviecodes.tech-backend
 
 
-frontend  aysuarex.tech-https-frontend
+frontend  oviecodes.tech-https-frontend
 	bind *:443 ssl crt /etc/ssl/aysuarex.tech.pem
 	http-request set-header X-Forwarded-Proto https
-        default_backend aysuarex.tech-backend
+        default_backend oviecodes.tech-backend
 
 
-backend aysuarex.tech-backend
+backend oviecodes.tech-backend
         balance roundrobin
-        server 914-web-01 44.210.150.159:80 check
-        server 914-web-02 35.173.47.15:80 check
+        server 131641-web-01 54.236.12.44:80 check
+        server 131641-web-02 100.25.17.206:80 check
 # end of parameters
