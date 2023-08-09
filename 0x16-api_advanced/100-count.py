@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Contains the count_words function"""
-import requests
+import praw
 
 
 def count_words(subreddit, word_list, found_list=[], after=None):
